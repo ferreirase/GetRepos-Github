@@ -22,7 +22,7 @@ App que busca e lista repositórios na API do Github.
 - Styled Components: conceito onde por uma função ou classe é retornado um componente com CSS já formatado. 
 
 #### Versões 
-- React => ^16.12.0
+- React: ^16.12.0
 - Eslint: ^6.8.0
 - Prettier": ^1.19.1
 - Axios": ^0.19.0
