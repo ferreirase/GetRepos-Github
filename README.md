@@ -2,7 +2,7 @@
 App que busca e lista repositórios na API do Github. 
 
 <h1 align="center">
-    <img alt="GoStack" src="https://reactjs.org/logo-og.png" width="200px" />
+    <img alt="GoStack" src="https://reactjs.org/logo-og.png" width="500px" />
 </h1>
 
 <h3 align="center">
