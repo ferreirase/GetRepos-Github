@@ -56,6 +56,24 @@ export const SubmitButton = styled.button.attrs(props => ({
     `}
 `;
 
+export const Trash = styled.button.attrs({
+  type: 'button',
+})`
+  background: #7159c1;
+  border-radius: 4px;
+  border: 0;
+  margin-left: 10px;
+  padding: 0 15px;
+
+  display: flex;
+  justify-content: center;
+  align-items: right;
+
+  &:active {
+    opacity: 0.6;
+  }
+`;
+
 export const List = styled.ul`
   list-style: none;
   margin-top: 30px;

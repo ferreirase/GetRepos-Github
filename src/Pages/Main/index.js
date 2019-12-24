@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { FaGithubAlt, FaPlus, FaSpinner } from 'react-icons/fa';
+import { FaGithubAlt, FaPlus, FaTrash, FaSpinner } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
-import { Form, SubmitButton, List } from './styles';
+import { Form, SubmitButton, List, Trash } from './styles';
 import Container from '../../Components/Container/index';
 
 export default class Main extends Component {
@@ -60,6 +60,7 @@ export default class Main extends Component {
     // pegando apenas o nome
     const data = {
       name: response.data.full_name,
+      id: response.data.id,
     };
 
     // setando um novo state no component
@@ -67,6 +68,30 @@ export default class Main extends Component {
       repositories: [...repositories, data],
       newRepo: '',
       loading: false,
+    });
+  };
+
+  handleClear = e => {
+    e.preventDefault();
+
+    this.setState({
+      newRepo: '',
+      loading: false,
+      repositories: [],
+    });
+
+    localStorage.removeItem('repositories');
+
+    this.componentDidMount();
+  };
+
+  handleDeleteOne = repo => {
+    const { repositories } = this.state;
+
+    const repoFilter = repositories.filter(rp => rp.name !== repo);
+
+    this.setState({
+      repositories: repoFilter,
     });
   };
 
@@ -90,18 +115,44 @@ export default class Main extends Component {
             {loading ? (
               <FaSpinner color="#fff" size={14} />
             ) : (
-              <FaPlus color="#fff" size={14} />
+              <FaPlus
+                color="#fff"
+                size={14}
+                style={{ position: 'relative', left: '5px' }}
+              />
             )}
           </SubmitButton>
+
+          <Trash onClick={this.handleClear}>
+            <FaTrash
+              style={{ color: 'whitesmoke', position: 'relative', left: '5px' }}
+            />
+          </Trash>
         </Form>
 
         <List>
           {repositories.map(repo => (
             <li key={repo.name}>
               <span style={{ fontWeight: 'bold' }}>{repo.name}</span>
-              <Link to={`/repository/${encodeURIComponent(repo.name)}`}>
+              <Link
+                to={`/repository/${encodeURIComponent(repo.name)}`}
+                style={{ position: 'relative', right: '-150px' }}
+              >
                 Detalhes
               </Link>
+              <Trash value={repo.id}>
+                <FaTrash
+                  style={{
+                    color: 'whitesmoke',
+                    position: 'relative',
+                    left: '5px',
+                    height: '40px',
+                    width: '10px',
+                  }}
+                  value={repo.id}
+                  onClick={() => this.handleDeleteOne(repo.name)}
+                />
+              </Trash>
             </li>
           ))}
         </List>
