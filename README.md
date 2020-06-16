@@ -55,11 +55,11 @@ Abaixo, seguem algumas fotos e um GIF do template da aplicação:
 
 ## :memo: Tecnologias Utilizadas no Projeto
 
-- ReactJS: construção da interface do sistema baseado em componentes. 
-- Typescript: tipagem e controle em tempo de desenvolvimento.
-- Axios: métodos para busca de resultados acessados por API. 
-- EsLint e Prettier: configurações de padronização e organização de código. 
-- Styled Components: conceito onde por uma função ou classe é retornado um componente com CSS já formatado. 
+- **ReactJS**: *construção da interface do sistema baseado em componentes.*
+- **Typescript**: *tipagem em tempo de desenvolvimento.*
+- **Axios**: *métodos para busca de resultados acessados por API.* 
+- **EsLint e Prettier**: *configurações de padronização e organização de código.* 
+- **Styled Components**: *conceito onde por uma função ou classe é retornado um componente com CSS já formatado.*
 
 ## :man: Author
 [**_```Anderson Raphael Ferreira```_**](https://www.linkedin.com/in/anderson-raphael-ferreira/)
